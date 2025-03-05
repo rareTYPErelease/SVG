@@ -1,28 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="600" height="200" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap');
+    </style>
     <defs>
-        <!-- Background animation with purple hues -->
-        <linearGradient id="hueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="hsl(270,100%,50%)">
-                <animate attributeName="stop-color" values="hsl(270,100%,50%);hsl(280,100%,50%);hsl(290,100%,50%);hsl(300,100%,50%);hsl(310,100%,50%);hsl(320,100%,50%);hsl(330,100%,50%);hsl(270,100%,50%)" dur="6s" repeatCount="indefinite"/>
+        <!-- Smooth Purple-to-Blue Gradient -->
+        <linearGradient id="animatedGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="hsl(280,100%,50%)">
+                <animate attributeName="stop-color" values="hsl(280,100%,50%);hsl(260,100%,50%);hsl(240,100%,50%);hsl(220,100%,50%);hsl(280,100%,50%)" dur="6s" repeatCount="indefinite"/>
+            </stop>
+            <stop offset="100%" stop-color="hsl(220,100%,50%)">
+                <animate attributeName="stop-color" values="hsl(220,100%,50%);hsl(240,100%,50%);hsl(260,100%,50%);hsl(280,100%,50%);hsl(220,100%,50%)" dur="6s" repeatCount="indefinite"/>
             </stop>
         </linearGradient>
-        <filter id="hueRotate">
-            <feColorMatrix type="hueRotate" values="270">
-                <animate attributeName="values" from="270" to="330" dur="6s" repeatCount="indefinite"/>
-            </feColorMatrix>
-        </filter>
+
+        <!-- Star Pattern -->
+        <pattern id="stars" width="10" height="10" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="0.8" fill="white" opacity="0.5"/>
+            <circle cx="8" cy="6" r="0.5" fill="white" opacity="0.3"/>
+            <circle cx="5" cy="8" r="0.6" fill="white" opacity="0.4"/>
+        </pattern>
     </defs>
 
-    <!-- Animated background -->
-    <rect width="600" height="200" fill="url(#hueGradient)" filter="url(#hueRotate)"/>
+    <!-- Background with Gradient & Stars -->
+    <rect width="600" height="200" fill="url(#animatedGradient)"/>
+    <rect width="600" height="200" fill="url(#stars)"/>
 
-    <!-- Display text -->
-    <text x="50%" y="40%" font-family="Orbitron, sans-serif" font-size="40" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="middle">
-        <tspan>Hello, I'm Adrian Mwangi</tspan>
+    <!-- Text: "Hello, I'm Adrian Mwangi" -->
+    <text x="50%" y="40%" font-family="'Orbitron', sans-serif" font-size="40" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="middle">
+        <tspan>
+            <animate attributeName="opacity" from="0" to="1" dur="2s" fill="freeze"/>
+            Hello, I'm Adrian Mwangi
+        </tspan>
     </text>
 
-    <text x="50%" y="65%" font-family="Orbitron, sans-serif" font-size="30" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">
-        <tspan>Welcome To My GitHub Account</tspan>
+    <!-- Text: "Welcome To My GitHub Account" -->
+    <text x="50%" y="65%" font-family="'Orbitron', sans-serif" font-size="30" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">
+        <tspan>
+            <animate attributeName="opacity" from="0" to="1" begin="2s" dur="2s" fill="freeze"/>
+            Welcome To My GitHub Account
+        </tspan>
     </text>
 </svg>
