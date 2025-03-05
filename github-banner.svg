@@ -1,31 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="600" height="200" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
     <defs>
-        <!-- Background animation with purple hues -->
-        <linearGradient id="hueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="hsl(270,100%,50%)">
-                <animate attributeName="stop-color" values="hsl(270,100%,50%);hsl(280,100%,50%);hsl(290,100%,50%);hsl(300,100%,50%);hsl(310,100%,50%);hsl(320,100%,50%);hsl(330,100%,50%);hsl(270,100%,50%)" dur="6s" repeatCount="indefinite"/>
+        <!-- Smooth animated gradient background -->
+        <linearGradient id="animatedGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="hsl(260, 100%, 50%)">
+                <animate attributeName="stop-color" values="hsl(260,100%,50%);hsl(280,100%,50%);hsl(300,100%,50%);hsl(320,100%,50%);hsl(260,100%,50%)" dur="6s" repeatCount="indefinite"/>
+            </stop>
+            <stop offset="100%" stop-color="hsl(200,100%,50%)">
+                <animate attributeName="stop-color" values="hsl(200,100%,50%);hsl(220,100%,50%);hsl(240,100%,50%);hsl(260,100%,50%);hsl(200,100%,50%)" dur="6s" repeatCount="indefinite"/>
             </stop>
         </linearGradient>
-        <filter id="hueRotate">
-            <feColorMatrix type="hueRotate" values="270">
-                <animate attributeName="values" from="270" to="330" dur="6s" repeatCount="indefinite"/>
-            </feColorMatrix>
+
+        <!-- Glow effect -->
+        <filter id="glow">
+            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
         </filter>
     </defs>
 
-    <!-- Animated background -->
-    <rect width="600" height="200" fill="url(#hueGradient)" filter="url(#hueRotate)"/>
+    <!-- Background -->
+    <rect width="600" height="200" fill="url(#animatedGradient)"/>
 
-    <!-- Display text with fade-in and fade-out effect -->
-    <text x="50%" y="40%" font-family="Orbitron, sans-serif" font-size="40" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="middle">
+    <!-- Glowing fade-in & fade-out text -->
+    <text x="50%" y="40%" font-family="'Orbitron', sans-serif" font-size="40" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="middle" filter="url(#glow)">
         <tspan>
             <animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite"/>
             Hello, I'm Adrian Mwangi
         </tspan>
     </text>
 
-    <text x="50%" y="65%" font-family="Orbitron, sans-serif" font-size="30" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">
+    <text x="50%" y="65%" font-family="'Orbitron', sans-serif" font-size="30" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" filter="url(#glow)">
         <tspan>
             <animate attributeName="opacity" values="0;1;0" dur="4s" begin="2s" repeatCount="indefinite"/>
             Welcome To My GitHub Account
