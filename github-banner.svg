@@ -20,10 +20,17 @@
             <circle cx="8" cy="6" r="0.5" fill="white" opacity="0.3"/>
             <circle cx="5" cy="8" r="0.6" fill="white" opacity="0.4"/>
         </pattern>
+
+        <!-- Hue Rotate Animation -->
+        <filter id="hueRotate">
+            <feColorMatrix type="hueRotate" values="0">
+                <animate attributeName="values" from="0" to="360" dur="8s" repeatCount="indefinite"/>
+            </feColorMatrix>
+        </filter>
     </defs>
 
     <!-- Background with Gradient & Stars -->
-    <rect width="600" height="200" fill="url(#animatedGradient)"/>
+    <rect width="600" height="200" fill="url(#animatedGradient)" filter="url(#hueRotate)"/>
     <rect width="600" height="200" fill="url(#stars)"/>
 
     <!-- Text: "Hello, I'm Adrian Mwangi" -->
